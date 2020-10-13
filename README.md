@@ -1,5 +1,5 @@
-Project: Data Modeling with Postgres
-by Eddie Wamutu Balibali, 12 October 2020
+##### Project: Data Modeling with Postgres
+##### by Eddie Wamutu Balibali, 12 October 2020
 
  # INTRODUCTION
 A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. The analytics team is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
@@ -56,7 +56,7 @@ It then transforms and loads the data into the five tables of the sparkifydb dat
 
 #### The steps to run the pipeline are as follows:
 
-- In a terminal, run python create_tables.py to reset the tables in the sparkifydb database.
-- Running test.ipynb (in a jupyter notebook) confirms that the tables were successfully created with the correct columns.
-- In a terminal, run python etl.py to process all the datasets.
-- Again, running test.ipynb confirms that the records were successfully inserted into each table.
+- In a terminal, run python `create_tables.py` to reset the tables in the sparkifydb database.
+- Running `test.ipynb` (in a jupyter notebook) confirms that the tables were successfully created with the correct columns.
+- In a terminal, run python `etl.py` to process all the datasets.
+- Again, running `test.ipynb` confirms that the records were successfully inserted into each table.
