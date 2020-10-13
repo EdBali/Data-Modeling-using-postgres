@@ -1,5 +1,5 @@
-Project: Data Modeling with Postgres
-by Eddie Wamutu Balibali, 12 October 2020
+# Project: Data Modeling with Postgres
+# by Eddie Wamutu Balibali, 12 October 2020
 
  # INTRODUCTION
 A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. The analytics team is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
@@ -14,8 +14,8 @@ In this project, I have applied what I've learned on data modeling with Postgres
 ### SONG DATASET
 The first dataset is a subset of real data from the Million Song Dataset. Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. For example, here are filepaths to two files in this dataset:
 
-song_data/A/B/C/TRABCEI128F424C983.json 
-song_data/A/A/B/TRAABJL12903CDCF1A.json
+`song_data/A/B/C/TRABCEI128F424C983.json` 
+`song_data/A/A/B/TRAABJL12903CDCF1A.json`
 
 Below is an example of what a single song file, TRAABJL12903CDCF1A.json, looks like.
 
