@@ -32,12 +32,12 @@ The log files in the dataset I  worked with are partitioned by the year and mont
 # FILES:
 In addition to the data files, the project includes six files:
 
-- test.ipynb displays the first few rows of each table to let me check my database.
-- create_tables.py drops and creates tables. I run this file to reset my tables before each time I run the ETL scripts.
-- etl.ipynb reads and processes a single file from song_data and log_data and loads the data into the tables. This notebook contains detailed instructions on the ETL process for each of the tables.
-- etl.py reads and processes files from song_data and log_data and loads them into the tables. It's based on my work in the ETL notebook.
-- sql_queries.py contains all my sql queries, and is imported into the last three files above.
-- README.md then provides an introduction to this project
+- `test.ipynb` displays the first few rows of each table to let me check my database.
+- `create_tables.py` drops and creates tables. I run this file to reset my tables before each time I run the ETL scripts.
+- `etl.ipynb` reads and processes a single file from song_data and log_data and loads the data into the tables. This notebook contains detailed instructions on the ETL process for each of the tables.
+- `etl.py` reads and processes files from song_data and log_data and loads them into the tables. It's based on my work in the ETL notebook.
+- `sql_queries.py` contains all my sql queries, and is imported into the last three files above.
+- `README.md` then provides an introduction to this project
 
 
 # Extracting and Transforming the Data
