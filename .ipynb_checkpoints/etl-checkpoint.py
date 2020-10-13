@@ -11,11 +11,11 @@ def process_song_file(cur, filepath):
     print(df.head)
 
     # insert song record
-    song_data = pd.read_json(filepath,lines=True)[["song_id","title","artist_id","year","duration"]].values.tolist()
+    song_data = pd.read_json(filepath,lines=True)[["song_id","title","artist_id","year","duration"]].values[0].tolist()
     cur.execute(song_table_insert,song_data)
     
     # insert artist record
-    artist_data = pd.read_json(filepath,lines=True)[["artist_id","artist_name","artist_location","artist_latitude","artist_longitude"]].values.tolist()
+    artist_data = pd.read_json(filepath,lines=True)[["artist_id","artist_name","artist_location","artist_latitude","artist_longitude"]].values[0].tolist()
     cur.execute(artist_table_insert, artist_data)
 
 
@@ -24,7 +24,7 @@ def process_log_file(cur, filepath):
     df = pd.read_json(filepath,lines=True)
 
     # filter by NextSong action
-    df = df[df['path'] == 'NextSong']
+    df = df[df['page'] == 'NextSong']
 
     # convert timestamp column to datetime
     t = pd.to_datetime(df['ts'],unit='ms')
@@ -52,12 +52,13 @@ def process_log_file(cur, filepath):
         results = cur.fetchone()
         
         if results:
-            songid, artistid = results
+            songid, artistid = results,results
         else:
             songid, artistid = None, None
 
         # insert songplay record
         songplay_data = (row.ts, row.userId, row.level, songid, artistid, row.sessionId, row.location, row.userAgent)
+        
         cur.execute(songplay_table_insert, songplay_data)
 
 
@@ -85,7 +86,7 @@ def main():
     cur = conn.cursor()
 
     process_data(cur, conn, filepath='data/song_data', func=process_song_file)
-    #process_data(cur, conn, filepath='data/log_data', func=process_log_file)
+    process_data(cur, conn, filepath='data/log_data', func=process_log_file)
 
     conn.close()
 
