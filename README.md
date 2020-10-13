@@ -32,12 +32,12 @@ The log files in the dataset I  worked with are partitioned by the year and mont
 # FILES:
 In addition to the data files, the project includes six files:
 
--test.ipynb displays the first few rows of each table to let me check my database.
--create_tables.py drops and creates tables. I run this file to reset my tables before each time I run the ETL scripts.
--etl.ipynb reads and processes a single file from song_data and log_data and loads the data into the tables. This notebook contains detailed instructions on the ETL process for each of the tables.
--etl.py reads and processes files from song_data and log_data and loads them into the tables. It's based on my work in the ETL notebook.
--sql_queries.py contains all my sql queries, and is imported into the last three files above.
--README.md then provides an introduction to this project
+- test.ipynb displays the first few rows of each table to let me check my database.
+- create_tables.py drops and creates tables. I run this file to reset my tables before each time I run the ETL scripts.
+- etl.ipynb reads and processes a single file from song_data and log_data and loads the data into the tables. This notebook contains detailed instructions on the ETL process for each of the tables.
+- etl.py reads and processes files from song_data and log_data and loads them into the tables. It's based on my work in the ETL notebook.
+- sql_queries.py contains all my sql queries, and is imported into the last three files above.
+- README.md then provides an introduction to this project
 
 
 # Extracting and Transforming the Data
@@ -47,16 +47,16 @@ The ETL pipeline extracts data from files in two directories:
 `/data/song_data`.
 It then transforms and loads the data into the five tables of the sparkifydb database. This is handled by four files using Python and SQL:
 
--Running `create_tables.py` creates and initializes the tables for the sparkifydb database.
--Running `test.ipynb` confirms the creation of my tables with the correct columns.
--Running `etl.ipynb` develops ETL processes for each table and is used to prepare a python script for processing all the datasets.
--`sql_queries.py` contains all SQL queries and is imported into `create_tables.py` and `etl.ipynb`
--Loading the Data and Running ETL Pipeline
--All the code I wrote in `etl.ipynb` I then used to complete `etl.py`, which reads and processes all the files from the song_data and log_data directories, and loads them into the sparkifydb database tables.
+- Running `create_tables.py` creates and initializes the tables for the sparkifydb database.
+- Running `test.ipynb` confirms the creation of my tables with the correct columns.
+- Running `etl.ipynb` develops ETL processes for each table and is used to prepare a python script for processing all the datasets.
+- `sql_queries.py` contains all SQL queries and is imported into `create_tables.py` and `etl.ipynb`
+- Loading the Data and Running ETL Pipeline
+- All the code I wrote in `etl.ipynb` I then used to complete `etl.py`, which reads and processes all the files from the song_data and log_data directories, and loads them into the sparkifydb database tables.
 
 #### The steps to run the pipeline are as follows:
 
--In a terminal, run python create_tables.py to reset the tables in the sparkifydb database.
--Running test.ipynb (in a jupyter notebook) confirms that the tables were successfully created with the correct columns.
--In a terminal, run python etl.py to process all the datasets.
--Again, running test.ipynb confirms that the records were successfully inserted into each table.
+- In a terminal, run python create_tables.py to reset the tables in the sparkifydb database.
+- Running test.ipynb (in a jupyter notebook) confirms that the tables were successfully created with the correct columns.
+- In a terminal, run python etl.py to process all the datasets.
+- Again, running test.ipynb confirms that the records were successfully inserted into each table.
