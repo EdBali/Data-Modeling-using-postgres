@@ -6,6 +6,13 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    '''
+    Converts json strings in datasets containing files in json format and executes sql commands to insert the data  into songs and artsist tables
+    
+    Parameters:
+        cur (object) : Used to execte Sql commands
+        filepath (path object) : File path of  a dataset
+    '''
     # open song file
     df = pd.read_json(filepath,lines=True)
     print(df.head)
@@ -20,6 +27,13 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    '''
+    Converts json strings in datasets containing files in json format to pandas object. 
+    
+    Parameters:
+        cur (object) : Used to execte Sql commands
+        filepath (path object) : File path of  a dataset
+    '''
     # open log file
     df = pd.read_json(filepath,lines=True)
 
@@ -63,6 +77,15 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    '''
+    Walks through file trees and stores the file directories in an array
+    
+    Parameters:
+        cur (object) : Used to execte Sql commands
+        filepath (path object) : File path of  file in  dataset 
+        conn (object) : Used to make a connection to a database
+        func(object) 
+    '''
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):

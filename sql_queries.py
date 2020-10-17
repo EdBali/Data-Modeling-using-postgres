@@ -96,12 +96,7 @@ ON CONFLICT (start_time) DO NOTHING;
 # FIND SONGS
 
 song_select = ("""
-SELECT 
-    songs.song_id, artists.artist_id
-FROM 
-    songs JOIN artists ON (songs.artist_id = artists.artist_id)
-WHERE 
-    songs.title = %s AND artists.name = %s AND songs.duration = %s
+SELECT * from songplays where song_id is not null and artist_id is not null
     ;""")
 
 # QUERY LISTS
